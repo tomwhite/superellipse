@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<project name="superellipse" default="all">
+
+  <target name="init">
+    <tstamp/>
+    <property name="project" value="${ant.project.name}" />
+    <property file="../standard_build.properties" />
+    <property file="build.properties" />
+	</target>
+
+	<target name="clean" depends="init">
+		<ant antfile="standard_build.xml" dir=".." target="clean" />
+	</target>
+
+	<target name="jar" depends="init">
+		<ant antfile="standard_build.xml" dir=".." target="prepare" />
+		<ant antfile="standard_build.xml" dir=".." target="compile" />
+		<ant antfile="standard_build.xml" dir=".." target="jar" />
+	</target>
+
+	<target name="run" depends="init,jar">
+		<ant antfile="standard_build.xml" dir=".." target="run" />
+	</target>
+
+	<target name="dist" depends="init,jar">
+		<ant antfile="standard_build.xml" dir=".." target="docs" />
+		<ant antfile="standard_build.xml" dir=".." target="javadoc" />
+		<ant antfile="standard_build.xml" dir=".." target="dist" />
+	</target>
+
+	<target name="all" depends="dist"/>
+
+</project>

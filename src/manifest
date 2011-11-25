@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: org.tiling.superellipse.SuperEllipseApplication
+Class-Path: core.jar
+
+
